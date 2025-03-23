@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome, {{ user.name }}!</h1>
+        <p>Your target: <strong>{{ user.target }}</strong></p>
+        <p>Days passed: <strong>{{ days_passed }}</strong></p>
+        <p>Days left: <strong>{{ days_left }}</strong></p>
+
+        <!-- Today's Target Section -->
+        <div class="target-status">
+            <h2>Today's Target</h2>
+            <form action="/check-target/{{ email }}" method="post">
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="radio" name="target_status" value="yes" {% if target_status == "done" %}checked{% endif %}>
+                        <span class="checkmark"></span>
+                        Yes
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="radio" name="target_status" value="no" {% if target_status == "not_done" %}checked{% endif %}>
+                        <span class="checkmark"></span>
+                        No
+                    </label>
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+            {% if target_status %}
+                <p class="status-message">
+                    {% if target_status == "done" %}
+                        <span style="color: green;">Congrats! You've completed today's target. 🎉</span>
+                    {% else %}
+                        <span style="color: red;">Today's target not done yet. Keep going! 💪</span>
+                    {% endif %}
+                </p>
+            {% endif %}
+        </div>
+
+        <!-- Track Progress Button -->
+        <div class="track-progress">
+            <form action="/track/{{ email }}" method="post">
+                <button type="submit" class="track-button">Track Progress</button>
+            </form>
+        </div>
+
+        <!-- Link to Groups Page -->
+        <p><a href="/groups">View Groups</a></p>
+    </div>
+</body>
+</html>
+

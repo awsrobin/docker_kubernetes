@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - 21-Day Habit Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>21-Day Habit Tracker</h1>
+        <form action="/register" method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="target" placeholder="21-Day Habit Goal" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login" class="switch-link">Login here</a></p>
+    </div>
+</body>
+</html>

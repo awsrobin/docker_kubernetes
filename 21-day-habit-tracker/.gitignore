@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environment
+venv/
+.env
+
+# Sensitive data
+users.json
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# System files
+.DS_Store
