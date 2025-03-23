@@ -30,7 +30,9 @@ eksctl create cluster --name fastapi-cluster
                      --nodegroup-name standard-workers 
                      --node-type t3.medium 
                      --nodes 2
-   This command creates a cluster named fastapi-cluster in the us-west-2 region with 2 worker nodes.
+This command creates a cluster named fastapi-cluster in the us-west-2 region with 2 worker nodes.
+Then we need to config kubectl:
+aws eks --region us-west-2 update-kubeconfig --name fastapi-cluster
 
 4.Deploy to Kubernetes:
 kubectl apply -f deployment.yaml
