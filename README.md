@@ -25,7 +25,12 @@ docker push <your-dockerhub-username>/fastapi-app:latest
 
 3.Create an EKS Cluster:
 
-eksctl create cluster --name fastapi-cluster --region us-west-2 --nodegroup-name standard-workers --node-type t3.medium --nodes 2
+eksctl create cluster --name fastapi-cluster 
+                     --region us-west-2 
+                     --nodegroup-name standard-workers 
+                     --node-type t3.medium 
+                     --nodes 2
+   This command creates a cluster named fastapi-cluster in the us-west-2 region with 2 worker nodes.
 
 4.Deploy to Kubernetes:
 kubectl apply -f deployment.yaml
